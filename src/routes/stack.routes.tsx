@@ -8,13 +8,21 @@ import {
   Home,
 } from "../screens";
 import { MyCars } from "../screens/MyCars";
+import { Splash } from "../screens/Splash";
 
 const { Navigator, Screen } = createStackNavigator();
 
 export const StackRoutes: React.FC = () => {
   return (
-    <Navigator headerMode="none">
-      <Screen name="Home" component={Home} />
+    <Navigator headerMode="none" initialRouteName="Splash">
+      <Screen name="Splash" component={Splash} />
+      <Screen
+        name="Home"
+        component={Home}
+        options={{
+          gestureEnabled: false,
+        }}
+      />
       <Screen name="CarDetails" component={CarDetails} />
       <Screen name="Appointments" component={Appointments} />
       <Screen name="AppointmentDetails" component={AppointmentDetails} />
