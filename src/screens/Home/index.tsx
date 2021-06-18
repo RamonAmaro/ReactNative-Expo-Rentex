@@ -1,13 +1,6 @@
-import { Ionicons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 import React, { useEffect, useState } from "react";
-import { BackHandler, StatusBar, StyleSheet } from "react-native";
-import { PanGestureHandler, RectButton } from "react-native-gesture-handler";
-import Animated, {
-  useAnimatedGestureHandler,
-  useAnimatedStyle,
-  useSharedValue,
-} from "react-native-reanimated";
+import { StatusBar } from "react-native";
 import { RFValue } from "react-native-responsive-fontsize";
 import Logo from "../../assets/logo.svg";
 import { CardCard } from "../../components";
@@ -19,38 +12,38 @@ import {
   Container,
   Header,
   HeaderContent,
-  TotalCars,
+  TotalCars
 } from "./styles";
 
-const ButtonAnimated = Animated.createAnimatedComponent(RectButton);
+// const ButtonAnimated = Animated.createAnimatedComponent(RectButton);
 
 export const Home: React.FC = () => {
   const [cars, setCars] = useState<ICars[]>([]);
   const [isLoading, setIsLoading] = useState(true);
 
-  const positionY = useSharedValue(0);
-  const positionX = useSharedValue(0);
+  // const positionY = useSharedValue(0);
+  // const positionX = useSharedValue(0);
 
-  const myCarsButtonStyle = useAnimatedStyle(() => {
-    return {
-      transform: [
-        { translateX: positionX.value },
-        { translateY: positionY.value },
-      ],
-    };
-  });
+  // const myCarsButtonStyle = useAnimatedStyle(() => {
+  //   return {
+  //     transform: [
+  //       { translateX: positionX.value },
+  //       { translateY: positionY.value },
+  //     ],
+  //   };
+  // });
 
-  const onGestureEvent = useAnimatedGestureHandler({
-    onStart(_event, ctx: any) {
-      ctx.positionX = positionX.value;
-      ctx.positionY = positionY.value;
-    },
-    onActive(event, ctx: any) {
-      positionX.value = ctx.positionX + event.translationX;
-      positionY.value = ctx.positionY + event.translationY;
-    },
-    onEnd() {},
-  });
+  // const onGestureEvent = useAnimatedGestureHandler({
+  //   onStart(_event, ctx: any) {
+  //     ctx.positionX = positionX.value;
+  //     ctx.positionY = positionY.value;
+  //   },
+  //   onActive(event, ctx: any) {
+  //     positionX.value = ctx.positionX + event.translationX;
+  //     positionY.value = ctx.positionY + event.translationY;
+  //   },
+  //   onEnd() {},
+  // });
 
   const navigation = useNavigation();
 
@@ -58,9 +51,9 @@ export const Home: React.FC = () => {
     navigation.navigate("CarDetails", { carDetail });
   }
 
-  function handleMyCars() {
-    navigation.navigate("MyCars");
-  }
+  // function handleMyCars() {
+  //   navigation.navigate("MyCars");
+  // }
 
   useEffect(() => {
     async function loadCard() {
@@ -77,14 +70,14 @@ export const Home: React.FC = () => {
     loadCard();
   }, []);
 
-  /* Android Specific disabled back button */
-  useEffect(() => {
-    BackHandler.addEventListener("hardwareBackPress", () => {
-      return true;
-    });
-  }, []);
+  // /* Android Specific disabled back button */
+  // useEffect(() => {
+  //   BackHandler.addEventListener("hardwareBackPress", () => {
+  //     return true;
+  //   });
+  // }, []);
 
-  /* -------------------------------------- */
+  // /* -------------------------------------- */
 
   if (isLoading) {
     return <Loading />;
@@ -111,7 +104,7 @@ export const Home: React.FC = () => {
         )}
       />
 
-      <PanGestureHandler onGestureEvent={onGestureEvent}>
+      {/* <PanGestureHandler onGestureEvent={onGestureEvent}>
         <Animated.View
           style={[
             myCarsButtonStyle,
@@ -126,18 +119,18 @@ export const Home: React.FC = () => {
             <Ionicons name="ios-car-sport" size={38} color="#fff" />
           </ButtonAnimated>
         </Animated.View>
-      </PanGestureHandler>
+      </PanGestureHandler> */}
     </Container>
   );
 };
 
-const styles = StyleSheet.create({
-  button: {
-    width: 60,
-    height: 60,
-    borderRadius: 30,
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "red",
-  },
-});
+// const styles = StyleSheet.create({
+//   button: {
+//     width: 60,
+//     height: 60,
+//     borderRadius: 30,
+//     justifyContent: "center",
+//     alignItems: "center",
+//     backgroundColor: "red",
+//   },
+// });

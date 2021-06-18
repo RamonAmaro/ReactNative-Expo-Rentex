@@ -12,7 +12,7 @@ import {
   Period,
   Price,
   Rent,
-  Type,
+  Type
 } from "./styles";
 
 interface CardDataProps extends RectButtonProps {
@@ -29,8 +29,8 @@ export const CardCard: React.FC<CardDataProps> = ({ data, ...rest }) => {
         <Name> {data.name} </Name>
         <About>
           <Rent>
-            <Period> {data.rent.period}</Period>
-            <Price> R$ {data.rent.price}</Price>
+            <Period> {data.period}</Period>
+            <Price> R$ {data.price}</Price>
           </Rent>
           <Type>
             <MotorIcon />

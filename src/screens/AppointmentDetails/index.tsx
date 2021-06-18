@@ -90,13 +90,17 @@ export const AppointmentDetails: React.FC = () => {
         id: carDetail.id,
         unavailable_dates,
       })
-      .then((_response) => navigation.navigate("AppointmentCompleted"))
+      .then((_response) =>
+        navigation.navigate("Confirmation", {
+          nextScreenRoute: "Home",
+          title: "Carro Alugado!",
+          message: `Agora você só precisa ir ${"\n"} até a concessionária da RENTX ${"\n"} pegar seu automóvel`,
+        })
+      )
       .catch(() => {
         Alert.alert("Não foi possivel confiarm o agendamento!");
         setLoading(false);
       });
-
-    navigation.navigate("AppointmentCompleted");
   }
 
   function handleGoBack() {

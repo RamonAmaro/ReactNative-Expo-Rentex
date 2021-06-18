@@ -17,8 +17,9 @@ export const Container = styled(RectButton)<IButtonProps>`
     color ? color : theme.colors.main};
 `;
 
-export const Title = styled.Text`
+export const Title = styled.Text<{ isLight: boolean }>`
   font-family: ${({ theme }) => theme.fonts.primary_500};
   font-size: ${RFValue(15)}px;
-  color: ${({ theme }) => theme.colors.shape};
+  color: ${({ theme, isLight }) =>
+    isLight ? theme.colors.header : theme.colors.shape};
 `;

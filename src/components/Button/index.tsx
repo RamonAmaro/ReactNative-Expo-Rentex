@@ -7,28 +7,28 @@ import { Container, Title } from "./styles";
 interface ButtonProps extends RectButtonProps {
   title: string;
   color?: string;
-  enabled?: boolean;
   loading?: boolean;
+  light?: boolean;
 }
 
 export const Button: React.FC<ButtonProps> = ({
   title,
   color,
-  enabled = true,
   loading = false,
+  light = false,
   ...rest
 }) => {
   return (
     <Container
       color={color}
       {...rest}
-      enabled={enabled}
-      style={{ opacity: enabled === false || loading === true ? 0.5 : 1 }}
+      enabled={rest.enabled}
+      style={{ opacity: rest.enabled === false || loading === true ? 0.5 : 1 }}
     >
       {loading ? (
         <ActivityIndicator size="small" color={theme.colors.shape} />
       ) : (
-        <Title> {title} </Title>
+        <Title isLight={light}> {title} </Title>
       )}
     </Container>
   );

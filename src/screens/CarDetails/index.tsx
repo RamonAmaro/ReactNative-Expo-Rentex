@@ -7,7 +7,7 @@ import Animated, {
   interpolate,
   useAnimatedScrollHandler,
   useAnimatedStyle,
-  useSharedValue,
+  useSharedValue
 } from "react-native-reanimated";
 import { Acessory } from "../../components/Acessory";
 import { BackButton } from "../../components/BackButton";
@@ -29,7 +29,7 @@ import {
   Name,
   Period,
   Price,
-  Rent,
+  Rent
 } from "./styles";
 
 interface Params {
@@ -110,8 +110,8 @@ export const CarDetails: React.FC = () => {
             <Name> {carDetail.name} </Name>
           </Description>
           <Rent>
-            <Period> {carDetail.rent.period} </Period>
-            <Price> R$ {carDetail.rent.price} </Price>
+            <Period> {carDetail.period} </Period>
+            <Price> R$ {carDetail.price} </Price>
           </Rent>
         </Details>
 

@@ -6,7 +6,7 @@ import Animated, {
   runOnJS,
   useAnimatedStyle,
   useSharedValue,
-  withTiming,
+  withTiming
 } from "react-native-reanimated";
 import BrandSvg from "../../assets/brand.svg";
 import LogoSvg from "../../assets/logo.svg";
@@ -14,6 +14,7 @@ import { Container } from "./styles";
 
 export const Splash: React.FC = () => {
   const navigation = useNavigation();
+  // const { user } = useAuth()
 
   const splashAnimation = useSharedValue(0);
 
@@ -50,7 +51,7 @@ export const Splash: React.FC = () => {
   });
 
   function startApp() {
-    return navigation.navigate("Home");
+    return navigation.navigate("SignIn");
   }
 
   useEffect(() => {

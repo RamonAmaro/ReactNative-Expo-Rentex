@@ -1,32 +1,27 @@
 import { createStackNavigator } from "@react-navigation/stack";
 import React from "react";
 import {
-  AppointmentCompleted,
   AppointmentDetails,
   Appointments,
   CarDetails,
+  Confirmation,
   Home,
+  MyCars,
+  Splash
 } from "../screens";
-import { MyCars } from "../screens/MyCars";
-import { Splash } from "../screens/Splash";
 
 const { Navigator, Screen } = createStackNavigator();
 
-export const StackRoutes: React.FC = () => {
+export const AppStackRoutes: React.FC = () => {
   return (
-    <Navigator headerMode="none" initialRouteName="Splash">
-      <Screen name="Splash" component={Splash} />
+    <Navigator headerMode="none" initialRouteName="Home">
       <Screen
-        name="Home"
-        component={Home}
-        options={{
-          gestureEnabled: false,
-        }}
-      />
+        name="Splash" component={Splash} />
+      <Screen name="Home"component={Home} />
       <Screen name="CarDetails" component={CarDetails} />
       <Screen name="Appointments" component={Appointments} />
       <Screen name="AppointmentDetails" component={AppointmentDetails} />
-      <Screen name="AppointmentCompleted" component={AppointmentCompleted} />
+      <Screen name="Confirmation" component={Confirmation} />
       <Screen name="MyCars" component={MyCars} />
     </Navigator>
   );
